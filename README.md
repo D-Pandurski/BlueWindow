@@ -103,8 +103,21 @@ Verify it is not possible to create a user without inputting data into the "Conf
 
 # Bugs
 <!-- When creating bugs, I usually attach videos or images to the work item -->
+BUG#1 [SECURITY - User Profile Creation page] Super user password hardcoded and visible in the HTML body
+    Steps to reproduce:
+        1. Navigate to the following page: https://qa-assessment.pages.dev/
+        2. Right click on a blank space on the page and select the "Inspect" option
+        3. In the openned browser developer console, collapse the "body" element in the HTML structure
+        4. Observe the "adminPassword" element
 
-BUG#1 [User Profile Creation page] Error on creation attempt - "LinkedIn URL" field is mandatory
+    Expected result:
+    No sensitive user data should be visible in the URL, HTML structure, payloads or responses.
+
+    Actual result:
+    Super user password is hardcoded and visible in the HTML.
+
+
+BUG#2 [User Profile Creation page] Error on creation attempt - "LinkedIn URL" field is mandatory
     VIDEO ATTACHED
 
     Steps to reproduce:
@@ -121,7 +134,7 @@ BUG#1 [User Profile Creation page] Error on creation attempt - "LinkedIn URL" fi
     When data is only input in the "First Name", "Last Name", "Email", "Password" and "Confirm" Password" mandatory fields, an error is displayed that reads "LinkedIn must be filled out". User creation without inputting data in the "LinkedIn URL" field is not possible.
 
 
-BUG#2 [User Profile Creation page] No URL validation in the "LinkedIn URL" and "GitHub URL" fields
+BUG#3 [User Profile Creation page] No URL validation in the "LinkedIn URL" and "GitHub URL" fields
     VIDEO ATTACHED
 
     Steps to reproduce:
@@ -139,7 +152,7 @@ BUG#2 [User Profile Creation page] No URL validation in the "LinkedIn URL" and "
     It is possible to create a user with incorrect provided URL's in the "LinkedIn URL" and/or "GitHub URL" input fields.
 
 
-BUG#3 [User Profile Creation page] Incorrect message displayed when no data is input into the "Last Name" field
+BUG#4 [User Profile Creation page] Incorrect message displayed when no data is input into the "Last Name" field
     VIDEO ATTACHED
 
     Steps to reproduce:
@@ -155,8 +168,23 @@ BUG#3 [User Profile Creation page] Incorrect message displayed when no data is i
     Actual result:
     When attempting to create a user without inputting a value in the "Last Name" field,an error is displayed that reads "*First* name must be filled out". 
 
+BUG#5 [User Profile Creation page] User creation success message not displayed for long enough
+    VIDEO ATTACHED
 
-BUG#4 [User Profile Creation page] Incorrect date format in the "Date of Birth" field
+    Steps to reproduce:
+        1. Navigate to the following page: https://qa-assessment.pages.dev/
+        2. Input valid data in the following fields: "First Name", "Last Name", "Email", "Password", "Confirm" Password"
+        3. Select the "Submit" button
+        4. Observe
+
+    Expected result:
+    A clear message should be displayed on screen if user creation has been successful.
+
+    Actual result:
+    The message displayed after successful user creation is displayed very briefly, before the page has been reset. 
+
+
+BUG#5 [User Profile Creation page] Incorrect date format in the "Date of Birth" field
     Steps to reproduce:
         1. Navigate to the following page: https://qa-assessment.pages.dev/
         2. Observe the date format placeholder value of the "Date of Birth" field
@@ -170,7 +198,7 @@ BUG#4 [User Profile Creation page] Incorrect date format in the "Date of Birth" 
     The date format in the "Date of Birth" input field is MM-DD-YYYY.
 
 
-BUG#5 [User Profile Creation page] Formatting and spelling issues
+BUG#6 [User Profile Creation page] Formatting and spelling issues
     Steps to reproduce:
         1. Navigate to the following page: https://qa-assessment.pages.dev/
         2. Observe the spelling in the following field titles: "Date *ofBirth* (optional)" , "Address (*optioal*)"

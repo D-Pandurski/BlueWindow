@@ -1,0 +1,65 @@
+import {
+  generateAlphanumeric,
+  generateFirstName,
+  generateLastName,
+  generateNumberOfDigits,
+} from "../../helpers/Datagenerators";
+
+export const userTemplateFactory = ({
+  firstName,
+  lastName,
+  email,
+  password,
+  confirmPassword,
+  gender,
+  dateOfBirth,
+  phoneNumber,
+  address,
+  linkedInURL,
+  gitHubURL,
+}: {
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  password: string | null;
+  confirmPassword: string | null;
+  gender?: string | null;
+  dateOfBirth?: string | null;
+  phoneNumber?: string | null;
+  address?: string | null;
+  linkedInURL?: string | null;
+  gitHubURL?: string | null;
+}): UserTemplate => ({
+  firstName: firstName === null ? null : firstName || generateFirstName("male"),
+  lastName: lastName === null ? null : lastName || generateLastName("male"),
+  email: email === null ? null : email || `${generateAlphanumeric(7)}@mail.com`,
+  password: password === null ? null : password,
+  confirmPassword: confirmPassword === null ? null : confirmPassword,
+  gender: gender === null ? null : gender || "Male",
+  dateOfBirth: dateOfBirth === null ? null : dateOfBirth || new Date().toISOString().split("T")[0],
+  phoneNumber: phoneNumber === null ? null : phoneNumber || generateNumberOfDigits(10),
+  address:
+    address === null
+      ? null
+      : address || `${generateAlphanumeric(3)} Street, ${generateNumberOfDigits(3)}`,
+  linkedInURL:
+    linkedInURL === null
+      ? null
+      : linkedInURL || `https://linkedin.com/in/${generateAlphanumeric(7)}`,
+  gitHubURL:
+    gitHubURL === null ? null : gitHubURL || `https://github.com/${generateAlphanumeric(7)}`,
+});
+
+export type UserTemplate = {
+  firstName: string | null;
+  lastName: string | null;
+  email: string | null;
+  password: string | null;
+  confirmPassword: string | null;
+  gender: string | null;
+  dateOfBirth: string | null;
+  phoneNumber: string | null;
+  address: string | null;
+  linkedInURL: string | null;
+  gitHubURL: string | null;
+};

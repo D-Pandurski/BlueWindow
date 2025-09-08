@@ -1,0 +1,1 @@
+export const CREATE_USER_PROFILE_URL = "https://qa-assessment.pages.dev";
