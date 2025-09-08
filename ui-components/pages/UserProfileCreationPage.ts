@@ -57,10 +57,17 @@ export class UserProfileCreationPage extends BasePage {
     this.successMessage = this.pageComponent.getByText('Success!');
   }
 
+  /*
+    Navigates to the Create User Profile page of the platfrom
+  */
   async goTo(): Promise<Response | null> {
     return await this.pageComponent.goto(CREATE_USER_PROFILE_URL);
   }
 
+  /* 
+    Looks through the userTemplate variable and verifies if the given property is null.
+    If the property is not null, the function fills in the respective field in the UI
+  */
   public async populateUserData(userTemplate: UserTemplate) {
     if (userTemplate.firstName) {
       await this.firstNameInput.fill(userTemplate.firstName);
