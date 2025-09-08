@@ -210,3 +210,24 @@ BUG#6 [User Profile Creation page] Formatting and spelling issues
 
     Actual result:
     There are spelling mistakes in the "Date of Birth" and "Address" fields. Only the "Gender" field's title is in bold.The radio buttons of the "Gender" field are not centered to their respective titles.
+
+# Suite Report
+The suite was executed on Google Chrome, Firefox and WebKit.
+
+Total Test Executions: 24
+Passed Tests: 15
+Failed Tests: 9
+
+ui-tests/user-profile-creation-page/positive-tests/user-profile-creation-positive.test.ts
+Verify it is possible to create a new user profile - Mandatory parameters only -> Test failed, because of BUG#2. An error is displayed when no data is input into the "LinkedIn URL" field of the user creation page. The field needs to be made optional. The test failed on all three platforms (Google Chrome, Firefox and Webkit).
+
+Verify it is possible to create a new user profile - All parameters -> Test failed, because of BUG#5. The success message displayed after user creation does not stay up for long enough and the page is reset immediately. The test failed on all three platforms (Google Chrome, Firefox and Webkit).
+
+
+ui-tests/user-profile-creation-page/negative-tests/user-profile-creation-negative.test.ts
+Verify it is not possible to create a user without inputting data into the "Last Name" field -> Test failed, because of BUG#4. The error displayed contains an incorrect message. "First name" is displayed instead of "Last name". The test failed on all three platforms (Google Chrome, Firefox and Webkit).
+
+# Additional notes
+1. Along with the found issues, I did spot that the user's chosen password is displayed in the URL, but I was unsure if that is just a limitation of the environment in some way or a bug for me to find, so I decided to leave it out. If I found something like this on a Staging or Production environment, I'd drop everything and log it immediately.
+
+2. There are other tests I would have liked to create, if I had more time. For example I would have liked to test the correct/incorrect value inputs for the different fields, the messages displayed when an incorrect value is input into certain fields, etc. 

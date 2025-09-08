@@ -4,6 +4,7 @@ import { userTemplateFactory } from "../../../../ui-components/object-templates/
 import { generateAlphanumeric } from "../../../../helpers/Datagenerators";
 
 test(`Verify the correct elements are displayed in the "User Profile Creation" page`, async ({
+  goToUserCreationPage,
   userProfileCreationPage,
   page,
 }) => {
