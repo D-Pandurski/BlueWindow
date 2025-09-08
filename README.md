@@ -1,3 +1,9 @@
+# Configuration
+1. Download the project .zip file through GitHub
+2. Extract the folder from the .zip file
+3. Open the folder using VS Code or any other IDE
+4. Open a terminal in the IDE and execute the following command: npm install
+
 # Questionnaire Answers:
     1. In the scenario of a tight release schedule, I would first focus on thorougly reviewing and understanding the specifications and business logic of the object in testing. I would create as few as possible test cases and tests, which achieve the highest percentage coverage of the component/system. 
 
